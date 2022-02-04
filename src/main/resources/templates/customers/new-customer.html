@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layouts :: header"></head>
+<body>
+
+<nav th:replace="layouts :: navbar"></nav>
+
+<div class="container">
+    <form action="/customers/save" th:object="${singleCustomer}"  method="POST">
+
+        <input type="hidden" th:field="${singleCustomer}"/>
+
+<!--        action="/customers/save"method="POST"-->
+
+        <input type="text" id="firstName" placeholder="First Name" th:field="${singleCustomer.firstName}">
+        <input type="text" id="lastName" placeholder="Last Name" th:field="${singleCustomer.lastName}">
+        <input type="text" id="phoneNumber" placeholder="Phone Number" th:field="${singleCustomer.phoneNumber}">
+        <input type="text" id="email" placeholder="Email Address" th:field="${singleCustomer.email}">
+
+        <select id="hairColor" th:field="${singleCustomer.hairColor}">
+            <option th:value="35"> Brown</option>
+            <option th:value="36"> Blonde</option>
+            <option th:value="37"> Dark</option>
+        </select>
+
+        <select th:field="*{employees}" multiple="multiple">
+            <option th:each = "employee : ${allEmployees}"
+                    th:value = "${employee.employeeId}"
+                    th:text = "${employee.firstName}">
+
+            </option>
+        </select>
+
+
+        <button type="submit" id="submitBtn">Create Customer</button>
+<!--        th:onclick="addCustomer(${singleCustomer})"-->
+
+    </form>
+</div>
+
+<!--<script src="https://unpkg.com/axios/dist/axios.min.js%22%3E"></script>-->
+<script type="text/javascript" th:src="@{/js/customer.js}"></script>
+</body>
+</html>
