@@ -7,6 +7,7 @@ import com.brightpaths.datadrivenmarketing.dao.EmployeeRepository;
 import com.brightpaths.datadrivenmarketing.dto.EmployeeCustomer;
 import com.brightpaths.datadrivenmarketing.entities.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.stereotype.Service;
 
 
@@ -22,25 +23,24 @@ public class EmployeeService {
     }
 
 
-    public Iterable<Employee> getAll() {
+    public List<Employee> getAll() {
         return employeeRepo.findAll();
     }
 
 
-    public List<EmployeeCustomer> employeeProjects() {
+    public List<EmployeeCustomer> employeeCustomers() {
         return employeeRepo.employeeCustomers();
     }
 
 
     public Employee findByEmployeeId(long theId) {
-        // TODO Auto-generated method stub
+        /* TODO Auto-generated method stub */
         return employeeRepo.findByEmployeeId(theId);
     }
 
 
     public void delete(Employee theEmp) {
-        employeeRepo.delete(theEmp);
-
+         employeeRepo.delete(theEmp);
     }
 
 }

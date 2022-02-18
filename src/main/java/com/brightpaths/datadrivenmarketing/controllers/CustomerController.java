@@ -106,7 +106,9 @@ public class CustomerController {
     public String displayCustomerUpdateForm(@RequestParam("id") long theId, Model model) {
 
         Customer theCust = customerService.findByCustomerId(theId);
+        Iterable<Employee> employees = employeeService.getAll();
         model.addAttribute("customer", theCust);
+        model.addAttribute("allEmployees", employees);
 
         return "customers/update-customer";
     }
@@ -119,13 +121,14 @@ public class CustomerController {
         theCust.setPhoneNumber(customer.getPhoneNumber());
         theCust.setEmail(customer.getEmail());
         theCust.setHairColor(customer.gethairColor());
+        theCust.setEmployees(customer.getEmployees());
         customerService.save(theCust);
 
         return "redirect:/customers";
 
     }
 
-    @GetMapping("delete")
+    @GetMapping("/delete")
     public String deleteCustomer(@RequestParam("id") long theId, Model model) {
         Customer theCust = customerService.findByCustomerId(theId);
         customerService.delete(theCust);
