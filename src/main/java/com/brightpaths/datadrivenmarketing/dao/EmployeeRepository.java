@@ -27,7 +27,7 @@ public interface EmployeeRepository extends CrudRepository<Employee, Long> {
 //            "GROUP BY e.employee_id, e.first_name, e.last_name " +
 //            "ORDER BY 3 DESC")
 
-//    @Query(nativeQuery=true, value = "SELECT e.first_name AS firstName, e.last_name AS lastName, COUNT(*) AS value " +
+    //    @Query(nativeQuery=true, value = "SELECT e.first_name AS firstName, e.last_name AS lastName, COUNT(*) AS value " +
 //            "FROM employee e " +
 //            "GROUP BY e.first_name, e.last_name")
     @Query(nativeQuery=true, value = "SELECT first_name AS firstName, last_name AS lastName, COUNT(*) AS value " +
@@ -38,5 +38,5 @@ public interface EmployeeRepository extends CrudRepository<Employee, Long> {
 
     public Employee findByEmail(String value);
 
-   public Employee findByEmployeeId(long theId);
+    public Employee findByEmployeeId(long theId);
 }

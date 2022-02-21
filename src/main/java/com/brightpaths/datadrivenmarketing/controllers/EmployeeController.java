@@ -41,8 +41,8 @@ public class EmployeeController {
     @GetMapping("/update")
     public String displayEmployeeUpdateForm(@RequestParam("id") long theId, Model model) {
 
-    Employee theEmp = employeeService.findByEmployeeId(theId);
-    model.addAttribute("employee", theEmp);
+        Employee theEmp = employeeService.findByEmployeeId(theId);
+        model.addAttribute("employee", theEmp);
 
         return "employees/update-employee";
     }
@@ -58,7 +58,7 @@ public class EmployeeController {
         return "redirect:/employees";
 
     }
-    
+
     @GetMapping("/delete")
     public String deleteEmployee(@RequestParam("id") long theId, Model model) {
         Employee theEmp = employeeService.findByEmployeeId(theId);
