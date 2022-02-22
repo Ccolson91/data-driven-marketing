@@ -23,7 +23,7 @@ public class CustomerRepositoryIntegrationTest {
 
     @Test
     public void ifNewCustomerSaved_thenSuccess() {
-        Customer newCustomer = new Customer("New Test", "Customer", "8888888888", "newtest@customer.com");
+        Customer newCustomer = new Customer("New Test", "Customer", "8888888888", "newtest@customer.com", "brown");
         customerRepo.save(newCustomer);
 
         assertEquals(8, customerRepo.findAll().size());

@@ -21,7 +21,7 @@ public class Customer {
     @JoinTable(name = "customer_employee", joinColumns = @JoinColumn(name="customer_id"), inverseJoinColumns = @JoinColumn(name = "employee_id"))
     private List<Employee> employees;
 
-    public Customer(String new_test, String customer, String s, String s1) {
+    public Customer() {
 
     }
 
